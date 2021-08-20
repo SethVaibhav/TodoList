@@ -1,0 +1,28 @@
+ <%- include("header") -%> <!--for layout as upper part is common so it can be stored in another ejs and include it inspite of vcopy and paste in ech file same below and get the sdmae styling -->
+        <div class="box" id="heading">
+        <h1><%= listTitle %></h1>
+        </div>
+        <div class="box">
+          <form method="POST" action="/delete">
+            <% Newitems.forEach(items => { %>
+              <div class="item"> 
+                <input type="checkbox" name="checkbox" onChange="submit()" value="<%= items._id %>">
+                <p><%= items.name %></p>
+                </div>  
+            <% });  %>
+            <input type="hidden" name="ListName" value="<%= listTitle %>"></input>
+          </form>
+            
+         <form method="POST" action="/" class="item">
+         <input type="text" name="NewItem" placeholder="New item" autocomplete="off">
+         <button type="submit" name="list" value="<%= listTitle %>" > + </button>   
+        </form>
+        
+        </div>
+        
+       
+        
+        
+<script src="" async defer></script>
+
+<%- include("footer") -%>
